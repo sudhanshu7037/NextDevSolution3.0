@@ -159,7 +159,7 @@ const seed = async () => {
         title: "App Development",
         subtitle: "Build powerful mobile applications for iOS and Android that deliver exceptional user experiences.",
         content: "We develop native and cross-platform mobile apps that are intuitive, robust, and scalable. Our team handles everything from conceptualization and UI/UX design to development and deployment on app stores.",
-        image: `/content/uploads/blog3.jpg`
+        image: `/content/uploads/blog3.jpg`,
         features: ["Native iOS & Android Apps", "Cross-Platform Development", "App UI/UX Design", "Backend API Integration"]
       }
     },
@@ -192,7 +192,7 @@ const seed = async () => {
         title: "Search Engine Optimization",
         subtitle: "Elevate your online presence and dominate search rankings with our expert SEO services.",
         content: "Our SEO strategies are designed to increase your visibility and drive organic traffic. We focus on both on-page and off-page optimization to ensure your site ranks higher on search engines.",
-        image: `/content/uploads/blog4.jpg`
+        image: `/content/uploads/blog4.jpg`,
         features: ["Keyword Research", "On-page Optimization", "Backlink Building", "Technical SEO Audit", "Content Strategy"]
       }
     },
@@ -203,7 +203,7 @@ const seed = async () => {
         title: "Graphics & Video Editing",
         subtitle: "Graphics and video editing involve creation and enhancement of visual content.",
         content: "Visual content is key to capturing attention in the digital age. Our expert designers and editors create stunning graphics and high-quality videos that tell your brand's story effectively.",
-        image: `/content/uploads/blog6.jpg`
+        image: `/content/uploads/blog6.jpg`,
         features: ["Social Media Graphics", "Video Production & Editing", "Business Profiles", "Custom Banners"]
       }
     },
@@ -245,7 +245,7 @@ const seed = async () => {
       category: "Technology",
       author: "Admin",
       date: "Jan 15, 2026",
-      image: `/content/uploads/blog1.jpg`
+      image: `/content/uploads/blog1.jpg`,
       content: `
         <p class="mb-6">Artificial Intelligence (AI) is no longer just a buzzword; it's a transformative force that is fundamentally changing how custom software is developed, deployed, and maintained.</p>
         <h2 class="text-2xl font-bold mb-4 text-gray-900">Automated Future</h2>
