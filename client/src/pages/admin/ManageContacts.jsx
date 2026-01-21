@@ -8,7 +8,7 @@ const ManageContacts = () => {
     const fetchContacts = async () => {
       try {
         const token = localStorage.getItem('adminToken');
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/contact`, {
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/contact`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setContacts(data);

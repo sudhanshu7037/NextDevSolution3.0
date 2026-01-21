@@ -11,7 +11,7 @@ const ManageContent = () => {
 
   const fetchContent = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/content`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
       setContent(data);
       setFilteredContent(data);
     } catch (err) {
@@ -40,7 +40,7 @@ const ManageContent = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.post(`${import.meta.env.VITE_API_URL}/content`, 
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/content`, 
         { page: editSection.page, section: editSection.section, data: formData },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -66,7 +66,7 @@ const ManageContent = () => {
           Authorization: `Bearer ${token}` 
         }
       });
-      const imageUrl = `http://localhost:5000${data.url}?t=${Date.now()}`;
+      const imageUrl = `${import.meta.env.VITE_API_URL}${data.url}?t=${Date.now()}`;
       
       let newFormData = JSON.parse(JSON.stringify(formData));
       if (index !== null && parentKey) {

@@ -10,7 +10,7 @@ const Career = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/content`);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
         const pageContent = data.find(item => item.page === 'career' && item.section === 'main');
         if (pageContent) {
           setContent(pageContent.data);

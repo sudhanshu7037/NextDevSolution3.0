@@ -21,7 +21,7 @@ const ServiceDetail = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/content`);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
         const pageContent = data.find(item => item.page === category && item.section === 'main');
         if (pageContent) {
           setService(pageContent.data);

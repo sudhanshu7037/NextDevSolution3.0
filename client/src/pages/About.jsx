@@ -10,7 +10,7 @@ const About = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/content`);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
         const aboutContent = {};
         data.filter(item => item.page === 'about').forEach(item => {
           aboutContent[item.section] = item.data;
@@ -86,8 +86,8 @@ const About = () => {
               src={main.image} 
               alt="About NEXTDEVSOLUTION" 
               className="relative z-10 rounded-3xl shadow-2xl w-full h-[500px] object-cover"
-              onError={(e) => { e.target.src = 'http://:5000/uploads/about.jpg'; }}
-            />localhost
+              onError={(e) => { e.target.src = `${import.meta.env.VITE_API_URL}/uploads/about.jpg`; }}
+            />
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#17a2a2] rounded-full opacity-20 blur-3xl"></div>
           </motion.div>
         </div>

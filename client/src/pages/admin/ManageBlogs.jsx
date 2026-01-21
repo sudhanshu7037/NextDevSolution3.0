@@ -18,7 +18,7 @@ const ManageBlogs = () => {
 
   const fetchBlogs = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/blogs`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/blogs`);
       setBlogs(data);
     } catch (err) {
       console.error(err);
@@ -42,7 +42,7 @@ const ManageBlogs = () => {
           Authorization: `Bearer ${token}` 
         }
       });
-      setFormData({ ...formData, image: `http://localhost:5000${data.url}?t=${Date.now()}` });
+      setFormData({ ...formData, image: `${import.meta.env.VITE_API_URL}${data.url}?t=${Date.now()}` });
       toast.success('Image uploaded successfully', { id: loadingToast });
     } catch (err) {
       toast.error('Error uploading image', { id: loadingToast });

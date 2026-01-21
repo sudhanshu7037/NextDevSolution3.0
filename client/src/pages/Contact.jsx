@@ -18,7 +18,7 @@ const Contact = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/content`);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
         const info = data.find(item => item.page === 'contact' && item.section === 'info');
         if (info) setContactInfo(info.data);
       } catch (err) {
