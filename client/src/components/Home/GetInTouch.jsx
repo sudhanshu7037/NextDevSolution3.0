@@ -76,8 +76,8 @@ const GetInTouch = () => {
             </div>
 
             <div className="space-y-4">
-              <a href="tel:+917033313450" className="flex items-center justify-center text-xl font-bold text-gray-800 hover:text-[#17a2a2] transition-colors">
-                <Phone className="mr-3 text-[#17a2a2]" size={24} /> Call Us:- +919389586236
+              <a href="tel:+919389586136" className="flex items-center justify-center text-xl font-bold text-gray-800 hover:text-[#17a2a2] transition-colors">
+                <Phone className="mr-3 text-[#17a2a2]" size={24} /> Call Us:- +919389586136
               </a>
               <a href="mailto:info@nextdevsolution.com" className="flex items-center justify-center text-xl font-bold text-gray-800 hover:text-[#17a2a2] transition-colors">
                 <Mail className="mr-3 text-[#17a2a2]" size={24} /> Email Us:- info@nextdevsolution.com
