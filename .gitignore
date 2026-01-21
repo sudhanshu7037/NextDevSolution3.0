@@ -1,0 +1,26 @@
+# Node
+node_modules/
+.env
+
+# Frontend
+client/node_modules/
+client/dist/
+client/dist-ssr
+client/*.local
+
+# Backend
+server/node_modules/
+server/dist/
+server/*.log
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store

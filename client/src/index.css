@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1a1a1a;
+  background-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+.bg-primary {
+  background-color: #17a2a2;
+}
+
+.text-primary {
+  color: #17a2a2;
+}
+
+.btn-primary {
+  @apply bg-[#17a2a2] hover:bg-[#1f8a8a] text-white px-6 py-3 rounded-lg transition-colors duration-300 font-semibold;
+}
