@@ -10,7 +10,7 @@ const Contact = () => {
   const [contactInfo, setContactInfo] = useState({
     title: "Get In Touch",
     subtitle: "We're here to help! If you have any questions, feel free to contact us.",
-    address: "Nextdevsolution, Pune, Maharashtra, India",
+    address: "The Iconic Corenthum Noida Sector 62",
     email: "info@nextdevsolution.com",
     phone: "+91 9389586136"
   });
