@@ -32,7 +32,7 @@ const Contact = () => {
     setSubmitting(true);
     const loadingToast = toast.loading('Sending message...');
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/contact`, data);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, data);
       toast.success('Thank you for contacting us! We will get back to you soon.', { id: loadingToast });
       reset();
     } catch (err) {

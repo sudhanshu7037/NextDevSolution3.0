@@ -60,7 +60,7 @@ const ManageContent = () => {
     uploadData.append('image', file);
     try {
       const token = localStorage.getItem('adminToken');
-      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/content/upload`, uploadData, {
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/content/upload`, uploadData, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}` 
