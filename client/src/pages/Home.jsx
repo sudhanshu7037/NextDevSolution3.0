@@ -106,12 +106,12 @@ const Home = () => {
               <img
                 src={
                   content.about_summary?.image ||
-                  "http://localhost:5000/uploads/about.jpg"
+                  `${import.meta.env.VITE_API_URL}/uploads/about.jpg`
                 }
                 alt="About NEXTDEVSOLUTION"
                 className="relative z-10 rounded-2xl shadow-2xl w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-500"
                 onError={(e) => {
-                  e.target.src = "http://localhost:5000/uploads/about.jpg";
+                  e.target.src = `${import.meta.env.VITE_API_URL}/uploads/about.jpg`;
                 }}
               />
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#17a2a2] rounded-full opacity-20 blur-2xl"></div>

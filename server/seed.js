@@ -33,7 +33,7 @@ const seed = async () => {
       data: {
         title: 'WE REINVENTED FOR YOU',
         subtitle: 'We specialize in custom solutions tailored to your business needs—delivering fast, secure, and scalable experiences. From startups to enterprises, we turn your ideas into powerful digital realities.',
-        image: 'http://localhost:5000/uploads/hero.jpg'
+        image: `${process.env.VITE_API_URL}/uploads/hero.jpg`
       }
     },
     {
@@ -42,12 +42,12 @@ const seed = async () => {
       data: {
         title: 'Elevating Tomorrow\'s IT Landscape',
         list: [
-          { id: 'crm', name: 'CRM', fullName: 'Customer Relationship Management', image: 'http://localhost:5000/uploads/crm.jpg' },
-          { id: 'hrm', name: 'HRM', fullName: 'Human Resource Management', image: 'http://localhost:5000/uploads/hrm.jpg' },
-          { id: 'sms', name: 'SMS', fullName: 'School Management System', image: 'http://localhost:5000/uploads/sms.jpg' },
-          { id: 'ims', name: 'IMS', fullName: 'Institute Management System', image: 'http://localhost:5000/uploads/ims.jpg' },
-          { id: 'ams', name: 'AMS', fullName: 'Attendance Management System', image: 'http://localhost:5000/uploads/ams.jpg' },
-          { id: 'bim', name: 'BIM', fullName: 'Billing & Invoice Management', image: 'http://localhost:5000/uploads/bim.jpg' },
+          { id: 'crm', name: 'CRM', fullName: 'Customer Relationship Management', image: `${process.env.VITE_API_URL}/uploads/crm.jpg` },
+          { id: 'hrm', name: 'HRM', fullName: 'Human Resource Management', image: `${process.env.VITE_API_URL}/uploads/hrm.jpg` },
+          { id: 'sms', name: 'SMS', fullName: 'School Management System', image: `${process.env.VITE_API_URL}/uploads/sms.jpg` },
+          { id: 'ims', name: 'IMS', fullName: 'Institute Management System', image: `${process.env.VITE_API_URL}/uploads/ims.jpg` },
+          { id: 'ams', name: 'AMS', fullName: 'Attendance Management System', image: `${process.env.VITE_API_URL}/uploads/ams.jpg` },
+          { id: 'bim', name: 'BIM', fullName: 'Billing & Invoice Management', image: `${process.env.VITE_API_URL}/uploads/bim.jpg` },
         ]
       }
     },
@@ -84,15 +84,15 @@ const seed = async () => {
       data: {
         title: 'Partnership & Collaborations',
         list: [
-          { name: 'AWS', logo: 'http://localhost:5000/uploads/aws.png' },
-          { name: 'Microsoft', logo: 'http://localhost:5000/uploads/microsoft.svg' },
-          { name: 'Google', logo: 'http://localhost:5000/uploads/google.svg' },
-          { name: 'Facebook', logo: 'http://localhost:5000/uploads/facebook.svg' },
-          { name: 'Innonex', logo: 'http://localhost:5000/uploads/innonex.png' },
-          { name: 'NIR 1 FZCO', logo: 'http://localhost:5000/uploads/nir.png' },
-          { name: 'Steadfast', logo: 'http://localhost:5000/uploads/steadfast.png' },
-          { name: 'Star India', logo: 'http://localhost:5000/uploads/star.png' },
-          { name: 'Power Text', logo: 'http://localhost:5000/uploads/power.png' },
+          { name: 'AWS', logo: `${process.env.VITE_API_URL}/uploads/aws.png` },
+          { name: 'Microsoft', logo: `${process.env.VITE_API_URL}/uploads/microsoft.svg` },
+          { name: 'Google', logo: `${process.env.VITE_API_URL}/uploads/google.svg` },
+          { name: 'Facebook', logo: `${process.env.VITE_API_URL}/uploads/facebook.svg` },
+          { name: 'Innonex', logo: `${process.env.VITE_API_URL}/uploads/innonex.png` },
+          { name: 'NIR 1 FZCO', logo: `${process.env.VITE_API_URL}/uploads/nir.png` },
+          { name: 'Steadfast', logo: `${process.env.VITE_API_URL}/uploads/steadfast.png` },
+          { name: 'Star India', logo: `${process.env.VITE_API_URL}/uploads/star.png` },
+          { name: 'Power Text', logo: `${process.env.VITE_API_URL}/uploads/power.png` },
         ]
       }
     },
@@ -107,7 +107,7 @@ const seed = async () => {
           "Production: IT infrastructure and video content",
           "Branding: Impactful strategies and messaging"
         ],
-        image: "http://localhost:5000/uploads/about.jpg"
+        image: `${process.env.VITE_API_URL}/uploads/about.jpg`
       }
     },
     // ABOUT PAGE
@@ -123,7 +123,7 @@ const seed = async () => {
           "Impactful branding strategies and messaging",
           "Scalable IT infrastructure for business growth"
         ],
-        image: 'http://localhost:5000/uploads/about.jpg'
+        image: `${process.env.VITE_API_URL}/uploads/about.jpg`
       }
     },
     {
@@ -148,7 +148,7 @@ const seed = async () => {
         title: "Web Development",
         subtitle: "Create stunning, high-performance websites that represent your brand and engage your audience.",
         content: "Our web development services focus on creating fast, secure, and responsive websites. We use the latest technologies to ensure your site is not just a digital placeholder, but a powerful business tool that drives results.",
-        image: "http://localhost:5000/uploads/hero.jpg",
+        image: `${process.env.VITE_API_URL}/uploads/hero.jpg`,
         features: ["Custom Web Design", "E-commerce Solutions", "CMS Integration", "Progressive Web Apps"]
       }
     },
@@ -159,7 +159,7 @@ const seed = async () => {
         title: "App Development",
         subtitle: "Build powerful mobile applications for iOS and Android that deliver exceptional user experiences.",
         content: "We develop native and cross-platform mobile apps that are intuitive, robust, and scalable. Our team handles everything from conceptualization and UI/UX design to development and deployment on app stores.",
-        image: "http://localhost:5000/uploads/blog3.jpg",
+        image: `${process.env.VITE_API_URL}/uploads/blog3.jpg`,
         features: ["Native iOS & Android Apps", "Cross-Platform Development", "App UI/UX Design", "Backend API Integration"]
       }
     },
@@ -170,7 +170,7 @@ const seed = async () => {
         title: "Custom Software Development",
         subtitle: "Build robust, scalable, and custom software solutions tailored to your unique business needs.",
         content: "Our custom software development services are focused on solving complex business challenges through innovative technology. We design and build high-performance software systems that streamline your operations and drive efficiency.",
-        image: "http://localhost:5000/uploads/ims.jpg",
+        image: `${process.env.VITE_API_URL}/uploads/ims.jpg`,
         features: ["Enterprise Software Solutions", "Cloud-Native Applications", "API Development & Integration", "Software Maintenance & Support"]
       }
     },
@@ -181,7 +181,7 @@ const seed = async () => {
         title: "Digital Marketing",
         subtitle: "Drive growth and engagement with our comprehensive digital marketing strategies.",
         content: "We offer a full suite of digital marketing services to help your business reach its full potential online. From performance marketing to content strategy, we use data-driven insights to deliver measurable results.",
-        image: "http://localhost:5000/uploads/blog2.jpg",
+        image: `${process.env.VITE_API_URL}/uploads/blog2.jpg`,
         features: ["Performance Marketing", "Content Strategy", "Email Marketing", "PPC Advertising"]
       }
     },
@@ -192,7 +192,7 @@ const seed = async () => {
         title: "Search Engine Optimization",
         subtitle: "Elevate your online presence and dominate search rankings with our expert SEO services.",
         content: "Our SEO strategies are designed to increase your visibility and drive organic traffic. We focus on both on-page and off-page optimization to ensure your site ranks higher on search engines.",
-        image: "http://localhost:5000/uploads/blog4.jpg",
+        image: `${process.env.VITE_API_URL}/uploads/blog4.jpg`,
         features: ["Keyword Research", "On-page Optimization", "Backlink Building", "Technical SEO Audit", "Content Strategy"]
       }
     },
@@ -203,7 +203,7 @@ const seed = async () => {
         title: "Graphics & Video Editing",
         subtitle: "Graphics and video editing involve creation and enhancement of visual content.",
         content: "Visual content is key to capturing attention in the digital age. Our expert designers and editors create stunning graphics and high-quality videos that tell your brand's story effectively.",
-        image: "http://localhost:5000/uploads/blog6.jpg",
+        image: `${process.env.VITE_API_URL}/uploads/blog6.jpg`,
         features: ["Social Media Graphics", "Video Production & Editing", "Business Profiles", "Custom Banners"]
       }
     },
@@ -245,7 +245,7 @@ const seed = async () => {
       category: "Technology",
       author: "Admin",
       date: "Jan 15, 2026",
-      image: "http://localhost:5000/uploads/blog1.jpg",
+      image: `${process.env.VITE_API_URL}/uploads/blog1.jpg`,
       content: `
         <p class="mb-6">Artificial Intelligence (AI) is no longer just a buzzword; it's a transformative force that is fundamentally changing how custom software is developed, deployed, and maintained.</p>
         <h2 class="text-2xl font-bold mb-4 text-gray-900">Automated Future</h2>
@@ -258,7 +258,7 @@ const seed = async () => {
       category: "Marketing",
       author: "Admin",
       date: "Jan 12, 2026",
-      image: "http://localhost:5000/uploads/blog2.jpg",
+      image: `${process.env.VITE_API_URL}/uploads/blog2.jpg`,
       content: "<p>Marketing is shifting towards deep personalization using data analytics.</p>"
     }
   ];

@@ -26,7 +26,7 @@ const OurProducts = ({ data }) => {
                 alt={product.fullName}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 onError={(e) => { 
-                  e.target.src = `http://localhost:5000/uploads/hero.jpg`; 
+                  e.target.src = `${process.env.VITE_API_URL}/uploads/hero.jpg`; 
                 }}
               />
 
