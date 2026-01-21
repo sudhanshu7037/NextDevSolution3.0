@@ -66,7 +66,8 @@ const ManageContent = () => {
           Authorization: `Bearer ${token}` 
         }
       });
-      const imageUrl = `${import.meta.env.VITE_API_URL}${data.url}?t=${Date.now()}`;
+     const imageUrl = `${data.url}?t=${Date.now()}`;
+
       
       let newFormData = JSON.parse(JSON.stringify(formData));
       if (index !== null && parentKey) {
