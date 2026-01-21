@@ -8,19 +8,17 @@ const Blog = require('./models/Blog');
 const seed = async () => {
   await mongoose.connect(process.env.MONGO_URI);
   
-  // Create or Update Admin
+  // Create Admin ONLY if it doesn't exist (one-time setup)
   const adminUsername = process.env.ADMIN_USERNAME || 'admin';
   const adminPassword = process.env.ADMIN_PASSWORD || 'password123';
   
   const adminUser = await User.findOne({ username: adminUsername });
   if (!adminUser) {
     await User.create({ username: adminUsername, password: adminPassword });
-    console.log(`Admin user created: ${adminUsername} / ${adminPassword}`);
+    console.log(`✅ Admin user created: ${adminUsername}`);
+    console.log(`⚠️  IMPORTANT: Change your password from the Admin Panel Settings!`);
   } else {
-    // Update password to match .env
-    adminUser.password = adminPassword;
-    await adminUser.save();
-    console.log(`Admin user password updated for: ${adminUsername}`);
+    console.log(`ℹ️  Admin user already exists. Use Admin Panel Settings to update credentials.`);
   }
 
   // Clear existing content to avoid index conflicts during re-seed

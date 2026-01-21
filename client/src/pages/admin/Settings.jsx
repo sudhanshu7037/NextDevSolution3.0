@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { User, Lock, Save, Eye, EyeOff } from 'lucide-react';
+import { User, Lock, Save, Eye, EyeOff, RefreshCw } from 'lucide-react';
 
 const Settings = () => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     currentPassword: '',
     newUsername: '',
@@ -16,6 +18,24 @@ const Settings = () => {
     confirm: false
   });
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    fetchCurrentUser();
+  }, []);
+
+  const fetchCurrentUser = async () => {
+    try {
+      const token = localStorage.getItem('adminToken');
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/auth/profile`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setCurrentUser(data);
+      setLoading(false);
+    } catch (err) {
+      toast.error('Error fetching user data');
+      setLoading(false);
+    }
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -70,6 +90,11 @@ const Settings = () => {
       }
 
       toast.success('Profile updated successfully', { id: loadingToast });
+      
+      // Refresh current user data
+      fetchCurrentUser();
+      
+      // Clear form
       setFormData({
         currentPassword: '',
         newUsername: '',
@@ -83,9 +108,33 @@ const Settings = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="bg-white p-4 md:p-8 rounded-2xl shadow-sm min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <RefreshCw className="animate-spin text-[#17a2a2] mx-auto mb-4" size={48} />
+          <p className="text-gray-500 font-medium">Loading settings...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white p-4 md:p-8 rounded-2xl shadow-sm min-h-screen">
       <div className="max-w-2xl mx-auto">
+        {/* Current User Info Card */}
+        <div className="mb-8 p-6 bg-gradient-to-r from-[#17a2a2] to-[#1f8a8a] rounded-2xl text-white shadow-xl">
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <User size={32} className="text-white" />
+            </div>
+            <div>
+              <p className="text-sm opacity-90">Logged in as</p>
+              <h3 className="text-2xl font-bold">{currentUser?.username}</h3>
+            </div>
+          </div>
+        </div>
+
         <div className="mb-10">
           <h2 className="text-2xl md:text-3xl font-black text-gray-900">Account Settings</h2>
           <p className="text-gray-500 text-sm md:text-base">Update your username and password</p>
