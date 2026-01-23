@@ -10,7 +10,8 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors());
+// Allow Authorization header and CORS from any origin (adjust for production as needed)
+app.use(cors({ origin: true, credentials: true, allowedHeaders: ['Content-Type', 'Authorization'] }));
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/content/uploads', express.static(path.join(__dirname, 'uploads')));
