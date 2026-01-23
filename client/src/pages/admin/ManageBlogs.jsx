@@ -15,10 +15,11 @@ const ManageBlogs = () => {
     excerpt: '',
     content: ''
   });
+  const API = import.meta.env.VITE_API_URL || '';
 
   const fetchBlogs = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/blogs`);
+      const { data } = await axios.get(`${API}/api/blogs`);
       setBlogs(data);
     } catch (err) {
       console.error(err);
@@ -36,13 +37,13 @@ const ManageBlogs = () => {
     uploadData.append('image', file);
     try {
       const token = localStorage.getItem('adminToken');
-      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/content/upload`, uploadData, {
+      const { data } = await axios.post(`${API}/api/content/upload`, uploadData, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}` 
         }
       });
-      setFormData({ ...formData, image: `${import.meta.env.VITE_API_URL}${data.url}?t=${Date.now()}` });
+      setFormData({ ...formData, image: `${API}${data.url}?t=${Date.now()}` });
       toast.success('Image uploaded successfully', { id: loadingToast });
     } catch (err) {
       toast.error('Error uploading image', { id: loadingToast });
@@ -54,12 +55,12 @@ const ManageBlogs = () => {
     const loadingToast = toast.loading('Saving blog...');
     try {
       const token = localStorage.getItem('adminToken');
-      if (formData._id) {
-        await axios.put(`${import.meta.env.VITE_API_URL}/blogs/${formData._id}`, formData, {
+        if (formData._id) {
+        await axios.put(`${API}/api/blogs/${formData._id}`, formData, {
           headers: { Authorization: `Bearer ${token}` }
         });
       } else {
-        await axios.post(`${import.meta.env.VITE_API_URL}/blogs`, formData, {
+        await axios.post(`${API}/api/blogs`, formData, {
           headers: { Authorization: `Bearer ${token}` }
         });
       }
@@ -76,7 +77,7 @@ const ManageBlogs = () => {
     if (!window.confirm('Are you sure you want to delete this blog?')) return;
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.delete(`${import.meta.env.VITE_API_URL}/blogs/${id}`, {
+      await axios.delete(`${API}/api/blogs/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchBlogs();

@@ -65,7 +65,7 @@ const ServiceDetail = () => {
               src={service.image} 
               alt={service.title} 
               className="rounded-3xl shadow-2xl w-full h-auto object-cover"
-              onError={(e) => { e.target.src = 'https://via.placeholder.com/600x400?text=Service+Image'; }}
+              onError={(e) => { e.target.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='; }}
             />
           </div>
         </div>

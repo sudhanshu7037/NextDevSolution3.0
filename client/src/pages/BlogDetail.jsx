@@ -9,11 +9,12 @@ const BlogDetail = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+  const API = import.meta.env.VITE_API_URL || '';
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/blogs/${id}`);
+        const { data } = await axios.get(`${API}/api/blogs/${id}`);
         setPost(data);
       } catch (err) {
         console.error('Error fetching blog detail', err);

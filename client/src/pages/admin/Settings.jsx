@@ -18,6 +18,7 @@ const Settings = () => {
     confirm: false
   });
   const [submitting, setSubmitting] = useState(false);
+  const API = import.meta.env.VITE_API_URL || '';
 
   useEffect(() => {
     fetchCurrentUser();
@@ -26,7 +27,7 @@ const Settings = () => {
   const fetchCurrentUser = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/auth/profile`, {
+      const { data } = await axios.get(`${API}/api/auth/profile`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCurrentUser(data);
@@ -75,7 +76,7 @@ const Settings = () => {
     try {
       const token = localStorage.getItem('adminToken');
       const { data } = await axios.put(
-        `${import.meta.env.VITE_API_URL}/auth/profile`,
+        `${API}/api/auth/profile`,
         {
           currentPassword: formData.currentPassword,
           newUsername: formData.newUsername || undefined,

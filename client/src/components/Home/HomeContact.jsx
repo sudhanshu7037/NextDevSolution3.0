@@ -7,12 +7,13 @@ import toast from 'react-hot-toast';
 const HomeContact = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const [submitting, setSubmitting] = useState(false);
+  const API = import.meta.env.VITE_API_URL || '';
 
   const onSubmit = async (data) => {
     setSubmitting(true);
     const loadingToast = toast.loading('Sending message...');
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/contact`, data);
+      await axios.post(`${API}/api/contact`, data);
       toast.success('Thank you for contacting us! We will get back to you soon.', { id: loadingToast });
       reset();
     } catch (err) {

@@ -9,6 +9,7 @@ const categories = ["All", "Technology", "Marketing", "Design", "SEO", "Security
 
 const Blogs = () => {
   const [blogPosts, setBlogPosts] = useState([]);
+  const API = import.meta.env.VITE_API_URL || '';
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
@@ -16,7 +17,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/blogs`);
+        const { data } = await axios.get(`${API}/api/blogs`);
         setBlogPosts(data);
       } catch (err) {
         console.error('Error fetching blogs', err);

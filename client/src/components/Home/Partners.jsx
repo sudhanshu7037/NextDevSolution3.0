@@ -16,7 +16,7 @@ const Partners = ({ data }) => {
                 src={partner.logo} 
                 alt={partner.name} 
                 className="h-10 md:h-12 w-auto object-contain max-w-[150px]"
-                onError={(e) => { e.target.src = `https://via.placeholder.com/150x50?text=${partner.name}`; }}
+                onError={(e) => { e.target.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='; }}
               />
             </div>
           ))}

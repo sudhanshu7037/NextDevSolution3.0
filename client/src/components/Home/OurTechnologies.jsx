@@ -24,7 +24,7 @@ const OurTechnologies = ({ data }) => {
                   src={tech.logo} 
                   alt={tech.name} 
                   className="max-w-full max-h-full object-contain"
-                  onError={(e) => { e.target.src = 'https://via.placeholder.com/64?text=' + tech.name.substring(0, 2); }}
+                  onError={(e) => { e.target.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='; }}
                 />
               </div>
               <span className="text-sm font-semibold text-gray-700">{tech.name}</span>
