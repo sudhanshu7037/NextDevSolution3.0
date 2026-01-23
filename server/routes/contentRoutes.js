@@ -28,8 +28,8 @@ router.post('/techs', protect, createTech);
 // Upload route
 router.post('/upload', protect, upload.single('image'), (req, res) => {
   if (!req.file) return res.status(400).json({ message: 'No file uploaded' });
-  const relativeUrl = `/uploads/${req.file.filename}`;
-  const fullUrl = `${req.protocol}://${req.get('host')}${relativeUrl}`;
+  const relativeUrl = `/content/uploads/${req.file.filename}`;
+  const fullUrl = `${req.protocol}://${req.get('host')}/api${relativeUrl}`;
   res.json({ url: relativeUrl, fullUrl });
 });
 
