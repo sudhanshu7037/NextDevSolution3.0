@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [content, setContent] = useState({});
+  const API = import.meta.env.VITE_API_URL || '';
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -105,13 +106,13 @@ const Home = () => {
               <div className="absolute -inset-4 bg-[#17a2a2] rounded-2xl opacity-10 transform -rotate-3"></div>
               <img
                 src={
-                  content.about_summary?.image ||
-                  `${import.meta.env.VITE_API_URL}/uploads/about.jpg`
-                }
+                    content.about_summary?.image ||
+                    `${API}/uploads/about.jpg`
+                  }
                 alt="About NEXTDEVSOLUTION"
                 className="relative z-10 rounded-2xl shadow-2xl w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-500"
                 onError={(e) => {
-                  e.target.src = `${import.meta.env.VITE_API_URL}/uploads/about.jpg`;
+                  e.target.src = `${API}/uploads/about.jpg`;
                 }}
               />
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#17a2a2] rounded-full opacity-20 blur-2xl"></div>

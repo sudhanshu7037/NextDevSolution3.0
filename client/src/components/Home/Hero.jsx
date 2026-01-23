@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const Hero = ({ data }) => {
+  const API = import.meta.env.VITE_API_URL || '';
   const title = data?.title || "WE REINVENTED FOR YOU";
   const subtitle = data?.subtitle || "Our team provides customized digital solutions aligned with your business requirements, delivering secure, scalable, and high-performance results. From startups to enterprises, we convert ideas into successful digital platforms.";
 
@@ -41,12 +42,12 @@ const Hero = ({ data }) => {
             transition={{ duration: 1 }}
             className="relative"
           >
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
               <img 
-                src={data?.image || `${import.meta.env.VITE_API_URL}/uploads/hero.jpg`} 
+                src={data?.image || `${API}/uploads/hero.jpg`} 
                 alt="Digital Solutions" 
                 className="w-full h-auto"
-                onError={(e) => { e.target.src = `${import.meta.env.VITE_API_URL}/uploads/hero.jpg`; }}
+                onError={(e) => { e.target.src = `${API}/uploads/hero.jpg`; }}
               />
             </div>
             {/* Decorative elements */}
