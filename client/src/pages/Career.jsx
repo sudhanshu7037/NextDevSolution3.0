@@ -7,10 +7,12 @@ import axios from 'axios';
 const Career = () => {
   const [content, setContent] = useState(null);
 
+  const API = import.meta.env.VITE_API_URL || '';
+
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
+        const { data } = await axios.get(`${API}/api/content`);
         const pageContent = data.find(item => item.page === 'career' && item.section === 'main');
         if (pageContent) {
           setContent(pageContent.data);

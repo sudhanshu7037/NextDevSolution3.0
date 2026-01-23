@@ -15,10 +15,12 @@ const Contact = () => {
     phone: "+91 9389586136"
   });
 
+  const API = import.meta.env.VITE_API_URL || '';
+
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
+        const { data } = await axios.get(`${API}/api/content`);
         const info = data.find(item => item.page === 'contact' && item.section === 'info');
         if (info) setContactInfo(info.data);
       } catch (err) {
@@ -32,7 +34,7 @@ const Contact = () => {
     setSubmitting(true);
     const loadingToast = toast.loading('Sending message...');
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, data);
+      await axios.post(`${API}/api/contact`, data);
       toast.success('Thank you for contacting us! We will get back to you soon.', { id: loadingToast });
       reset();
     } catch (err) {

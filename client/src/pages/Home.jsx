@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
+        const { data } = await axios.get(`${API}/api/content`);
         const contentMap = {};
         data
           .filter((item) => item.page === "home")

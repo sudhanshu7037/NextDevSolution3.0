@@ -11,7 +11,7 @@ const About = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
+        const { data } = await axios.get(`${API}/api/content`);
         const aboutContent = {};
         data.filter(item => item.page === 'about').forEach(item => {
           aboutContent[item.section] = item.data;
