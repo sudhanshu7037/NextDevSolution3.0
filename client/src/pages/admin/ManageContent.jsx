@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
+const API = import.meta.env.VITE_API_URL || '';
+
 const ManageContent = () => {
   const [content, setContent] = useState([]);
   const [filteredContent, setFilteredContent] = useState([]);
   const [selectedPage, setSelectedPage] = useState('all');
   const [editSection, setEditSection] = useState(null);
   const [formData, setFormData] = useState({});
-  const API = import.meta.env.VITE_API_URL || '';
 
   const fetchContent = async () => {
     try {
@@ -21,6 +22,7 @@ const ManageContent = () => {
   };
 
   useEffect(() => {
+
     fetchContent();
   }, []);
 
@@ -39,6 +41,7 @@ const ManageContent = () => {
 
   const handleSave = async (e) => {
     e.preventDefault();
+
     try {
       const token = localStorage.getItem('adminToken');
       await axios.post(`${API}/api/content`, 
