@@ -43,7 +43,8 @@ const ManageBlogs = () => {
           Authorization: `Bearer ${token}` 
         }
       });
-      setFormData({ ...formData, image: `${API}${data.url}?t=${Date.now()}` });
+      // Cloudinary returns full URL, no need to prepend API
+      setFormData({ ...formData, image: data.url });
       toast.success('Image uploaded successfully', { id: loadingToast });
     } catch (err) {
       console.error('Upload error:', err);

@@ -70,7 +70,8 @@ const ManageContent = () => {
           Authorization: `Bearer ${token}` 
         }
       });
-     const imageUrl = `${API}${data.url}?t=${Date.now()}`;
+      // Cloudinary returns full URL, no need to prepend API
+      const imageUrl = data.url;
 
       
       let newFormData = JSON.parse(JSON.stringify(formData));
