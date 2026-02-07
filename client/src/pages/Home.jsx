@@ -112,7 +112,10 @@ const Home = () => {
                 alt="About NEXTDEVSOLUTION"
                 className="relative z-10 rounded-2xl shadow-2xl w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-500"
                 onError={(e) => {
-                  e.target.src = `${API}/uploads/about.jpg`;
+                  // Check if the current src is already pointing to the fallback, to avoid infinite loop
+                  if (!e.target.src.includes('uploads/about.jpg')) {
+                    e.target.src = `${API}/uploads/about.jpg`;
+                  }
                 }}
               />
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#17a2a2] rounded-full opacity-20 blur-2xl"></div>

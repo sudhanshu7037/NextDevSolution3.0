@@ -47,7 +47,12 @@ const Hero = ({ data }) => {
                 src={data?.image || `${API}/uploads/hero.jpg`} 
                 alt="Digital Solutions" 
                 className="w-full h-auto"
-                onError={(e) => { e.target.src = `${API}/uploads/hero.jpg`; }}
+                onError={(e) => { 
+                  // Check if the current src is already pointing to the fallback, to avoid infinite loop
+                  if (!e.target.src.includes('uploads/hero.jpg')) {
+                    e.target.src = `${API}/uploads/hero.jpg`;
+                  }
+                }}
               />
             </div>
             {/* Decorative elements */}

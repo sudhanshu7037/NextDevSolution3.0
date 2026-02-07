@@ -70,7 +70,10 @@ const BlogDetail = () => {
           animate={{ opacity: 1, scale: 1 }}
           className="rounded-3xl overflow-hidden shadow-2xl mb-12"
         >
-          <img src={post.image} alt={post.title} className="w-full h-auto object-cover" />
+          <img src={post.image} alt={post.title} className="w-full h-auto object-cover" 
+            onError={(e) => { 
+              e.target.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='; 
+            }}/>
         </motion.div>
 
         {/* Content */}

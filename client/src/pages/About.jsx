@@ -87,7 +87,12 @@ const About = () => {
               src={main.image} 
               alt="About NEXTDEVSOLUTION" 
               className="relative z-10 rounded-3xl shadow-2xl w-full h-[500px] object-cover"
-              onError={(e) => { e.target.src = `${API}/uploads/hero.jpg`; }}
+              onError={(e) => { 
+                // Check if the current src is already pointing to the fallback, to avoid infinite loop
+                if (!e.target.src.includes('uploads/hero.jpg')) {
+                  e.target.src = `${API}/uploads/hero.jpg`; 
+                }
+              }}
             />
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#17a2a2] rounded-full opacity-20 blur-3xl"></div>
           </motion.div>

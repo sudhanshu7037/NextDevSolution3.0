@@ -121,6 +121,9 @@ const Blogs = () => {
                     src={post.image} 
                     alt={post.title}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => { 
+                      e.target.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='; 
+                    }}
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-[#17a2a2] text-white text-xs font-bold px-3 py-1 rounded-full uppercase flex items-center gap-1">

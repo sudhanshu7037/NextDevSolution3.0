@@ -27,7 +27,10 @@ const OurProducts = ({ data }) => {
                 alt={product.fullName}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 onError={(e) => { 
-                  e.target.src = `${API}/uploads/hero.jpg`; 
+                  // Check if the current src is already pointing to the fallback, to avoid infinite loop
+                  if (!e.target.src.includes('uploads/hero.jpg')) {
+                    e.target.src = `${API}/uploads/hero.jpg`; 
+                  }
                 }}
               />
 

@@ -36,7 +36,7 @@ router.post('/upload', protect, cloudinaryUpload.single('image'), (req, res) => 
     console.log('File uploaded to Cloudinary:', req.file.path);
     
     res.json({ 
-      url: req.file.path, // Cloudinary URL
+      url: req.file.path || req.file.secure_url, // Cloudinary URL (secure_url is the actual image URL)
       public_id: req.file.filename, // Cloudinary public ID
       originalname: req.file.originalname,
       size: req.file.size
