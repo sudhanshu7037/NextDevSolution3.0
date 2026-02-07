@@ -27,10 +27,25 @@ router.post('/techs', protect, createTech);
 
 // Upload route
 router.post('/upload', protect, upload.single('image'), (req, res) => {
-  if (!req.file) return res.status(400).json({ message: 'No file uploaded' });
-  const relativeUrl = `/uploads/${req.file.filename}`;
-  const fullUrl = `${req.protocol}://${req.get('host')}${relativeUrl}`;
-  res.json({ url: relativeUrl, fullUrl });
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+    
+    console.log('File uploaded:', req.file.filename);
+    const relativeUrl = `/uploads/${req.file.filename}`;
+    const fullUrl = `${req.protocol}://${req.get('host')}${relativeUrl}`;
+    
+    res.json({ 
+      url: relativeUrl, 
+      fullUrl,
+      filename: req.file.filename,
+      size: req.file.size
+    });
+  } catch (error) {
+    console.error('Upload error:', error);
+    res.status(500).json({ message: 'Upload failed: ' + error.message });
+  }
 });
 
 module.exports = router;

@@ -46,7 +46,9 @@ const ManageBlogs = () => {
       setFormData({ ...formData, image: `${API}${data.url}?t=${Date.now()}` });
       toast.success('Image uploaded successfully', { id: loadingToast });
     } catch (err) {
-      toast.error('Error uploading image', { id: loadingToast });
+      console.error('Upload error:', err);
+      const errorMessage = err.response?.data?.message || err.message || 'Error uploading image';
+      toast.error(`Upload failed: ${errorMessage}`, { id: loadingToast });
     }
   };
 
