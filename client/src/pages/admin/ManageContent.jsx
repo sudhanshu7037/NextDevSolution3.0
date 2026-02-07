@@ -8,10 +8,10 @@ const ManageContent = () => {
   const [selectedPage, setSelectedPage] = useState('all');
   const [editSection, setEditSection] = useState(null);
   const [formData, setFormData] = useState({});
+  const API = import.meta.env.VITE_API_URL || '';
 
   const fetchContent = async () => {
     try {
-      const API = import.meta.env.VITE_API_URL || '';
       const { data } = await axios.get(`${API}/api/content`);
       setContent(data);
       setFilteredContent(data);
