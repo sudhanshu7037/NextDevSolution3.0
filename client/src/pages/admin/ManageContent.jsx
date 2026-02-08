@@ -88,7 +88,14 @@ const ManageContent = () => {
     } catch (err) {
       console.error('Upload error:', err);
       const errorMessage = err.response?.data?.message || err.message || 'Error uploading image';
-      toast.error(`Upload failed: ${errorMessage}`, { id: loadingToast });
+      const errorDetails = err.response?.data?.details || err.response?.data?.error || '';
+      
+      let fullErrorMessage = `Upload failed: ${errorMessage}`;
+      if (errorDetails) {
+        fullErrorMessage += ` - ${errorDetails}`;
+      }
+      
+      toast.error(fullErrorMessage, { id: loadingToast });
     }
   };
 

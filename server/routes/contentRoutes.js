@@ -29,6 +29,15 @@ router.post('/techs', protect, createTech);
 // Upload route - Cloudinary version
 router.post('/upload', protect, cloudinaryUpload.single('image'), (req, res) => {
   try {
+    // Check if Cloudinary is properly configured
+    if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+      console.error('Cloudinary not configured properly');
+      return res.status(500).json({ 
+        message: 'Cloudinary configuration missing',
+        details: 'Please check CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET environment variables'
+      });
+    }
+    
     if (!req.file) {
       return res.status(400).json({ message: 'No file uploaded' });
     }
@@ -43,7 +52,10 @@ router.post('/upload', protect, cloudinaryUpload.single('image'), (req, res) => 
     });
   } catch (error) {
     console.error('Cloudinary upload error:', error);
-    res.status(500).json({ message: 'Upload failed: ' + error.message });
+    res.status(500).json({ 
+      message: 'Upload failed: ' + error.message,
+      error: error.toString()
+    });
   }
 });
 
