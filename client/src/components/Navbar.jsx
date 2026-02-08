@@ -28,7 +28,7 @@ const Navbar = () => {
     },
     { 
       name: 'Services', 
-      path: '/services',
+      path: '',
       submenu: [
         { name: 'Web Development', path: '/services/web-development' },
         { name: 'App Development', path: '/services/app-development' },

@@ -86,7 +86,7 @@ const About = () => {
             <img 
               src={main.image} 
               alt="About NEXTDEVSOLUTION" 
-              className="relative z-10 rounded-3xl shadow-2xl w-full h-[500px] object-cover"
+              className="relative z-10   w-full h-[500px] object-cover"
               onError={(e) => { 
                 // Check if the current src is already pointing to the fallback, to avoid infinite loop
                 if (!e.target.src.includes('uploads/hero.jpg')) {
