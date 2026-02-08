@@ -42,7 +42,7 @@ const Hero = ({ data }) => {
             transition={{ duration: 1 }}
             className="relative"
           >
-              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+              <div className="relative z-10  overflow-hidden  transform rotate-3 hover:rotate-0 transition-transform duration-500">
               <img 
                 src={data?.image || `${API}/uploads/hero.jpg`} 
                 alt="Digital Solutions" 
