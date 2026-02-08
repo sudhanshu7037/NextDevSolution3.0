@@ -65,7 +65,7 @@ const ServiceDetail = () => {
             <img 
               src={service.image} 
               alt={service.title} 
-              className="rounded-3xl shadow-2xl w-full h-auto object-cover"
+              className=" w-full h-auto object-cover"
               onError={(e) => { e.target.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='; }}
             />
           </div>
